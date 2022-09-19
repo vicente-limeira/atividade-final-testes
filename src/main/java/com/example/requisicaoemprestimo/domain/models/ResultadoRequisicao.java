@@ -1,15 +1,15 @@
 package com.example.requisicaoemprestimo.domain.models;
 
-public class ResultadoAnalise {
+public class ResultadoRequisicao {
     private boolean aprovado;
     private String[] resultado;
 
-    public ResultadoAnalise(){
-        this.aprovado = false;
-        this.resultado = new String[0];
+    public ResultadoRequisicao() {
+        this.aprovado = true;
+        this.resultado = new String[] {"OK"};
     }
 
-    public ResultadoAnalise(boolean aprovado, String[] resultado)
+    public ResultadoRequisicao(boolean aprovado, String[] resultado)
     {
         this.aprovado = aprovado;
         this.resultado = resultado;
@@ -31,4 +31,3 @@ public class ResultadoAnalise {
         this.resultado = resultado;
     }
 }
-

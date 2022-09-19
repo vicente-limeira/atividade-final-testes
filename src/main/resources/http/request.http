@@ -1,0 +1,9 @@
+###
+# TODO : Implementar Request para testes de Sistemas
+POST {{HOST}}
+
+> {%
+ client.test("Request executed", function() {
+    // TODO: Implementa Testes
+ });
+ %}
