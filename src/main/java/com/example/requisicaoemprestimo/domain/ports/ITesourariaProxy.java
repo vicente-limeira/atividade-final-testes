@@ -1,2 +1,4 @@
-package com.example.requisicaoemprestimo.domain.ports;public interface ITesourariaProxy {
+package com.example.requisicaoemprestimo.domain.ports;
+
+public interface ITesourariaProxy {
 }

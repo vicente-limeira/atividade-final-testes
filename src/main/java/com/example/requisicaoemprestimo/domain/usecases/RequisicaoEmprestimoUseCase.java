@@ -1,2 +1,4 @@
-package com.example.requisicaoemprestimo.application.services;public class Emprestimo {
+package com.example.requisicaoemprestimo.domain.usecases;
+
+public class RequisicaoEmprestimoUseCase {
 }
