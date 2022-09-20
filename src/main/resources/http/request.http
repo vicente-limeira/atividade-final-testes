@@ -1,6 +1,13 @@
 ###
 # TODO : Implementar Request para testes de Sistemas
-POST {{HOST}}
+POST {{HOST}}emprestimo/registro
+Content-Type: application/json
+
+{
+ "usuario": "{{$uuid}}",
+ "valor": 100,
+ "parcelas": 12
+}
 
 > {%
  client.test("Request executed", function() {

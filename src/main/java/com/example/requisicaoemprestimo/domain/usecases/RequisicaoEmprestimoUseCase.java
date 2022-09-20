@@ -27,9 +27,10 @@ public class RequisicaoEmprestimoUseCase {
 
     public Emprestimo executar(UUID usuarioUuid, double valor, int quantidadeParcelas){
         var emprestimo = new Emprestimo(usuarioUuid, valor, quantidadeParcelas);
-        validarEmprestimo(emprestimo);
+        var request = validarEmprestimo(emprestimo);
 
-        if (!emprestimo.isEmprestimoFoiAprovado()){
+        if (!request.isAprovado()){
+            emprestimo.setResultadoRequisicao(request);
             return emprestimo;
         }
 
@@ -53,7 +54,7 @@ public class RequisicaoEmprestimoUseCase {
         }
     }
 
-    private void validarEmprestimo(Emprestimo emprestimo){
+    private ResultadoRequisicao validarEmprestimo(Emprestimo emprestimo){
         var errors = new ArrayList<String>();
 
         if (emprestimo.getUsuario() == "")
@@ -66,10 +67,9 @@ public class RequisicaoEmprestimoUseCase {
             errors.add("QUANTIDADE PARCELAS NÃO INFORMADA");
 
         if (errors.size() > 0) {
-            var resultado = new ResultadoAnalise();
-            String[] messages = (String[]) errors.toArray();
-            resultado.setResultado(messages);
-            resultado.setAprovado(false);
+            var resultado = new ResultadoRequisicao(false, (String[]) errors.toArray());
+            return resultado;
         }
+        return new ResultadoRequisicao();
     }
 }
